@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: abrahamsinsard <abrahamsinsard@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:10:53 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/21 21:53:27 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/21 23:24:19 by abrahamsins      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_num_len(long long int n)
 		n *= -1;
 	while (n > 10)
 	{
-		n = 10;
+		n /= 10;
 		len++;
 	}
 	return (len);
@@ -32,7 +32,7 @@ void	ft_put_base(size_t n, char *base)
 	int	baselen;
 
 	baselen = ft_strlen(base);
-	if (n > baselen)
+	if (n > (size_t)baselen)
 		ft_put_base(n / baselen, base);
 	write(1, &base[n % baselen], 1);
 }

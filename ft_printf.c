@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: abrahamsinsard <abrahamsinsard@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:33:04 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/21 22:09:02 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/21 23:25:21 by abrahamsins      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_print_arg(va_list list, char c, size_t *i)
+int	ft_print_arg(va_list list, char c)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(list, int)));
@@ -42,6 +42,7 @@ int	ft_printf(const char *format, ...)
 	int	count;
 	
 	i = 0;
+	count = 0;
 	if (!format)
 		return (-1);
 	va_start(list, format);
@@ -49,7 +50,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += ft_print_arg(list, format[i + 1], &i);
+			count += ft_print_arg(list, format[i + 1]);
 			i++;
 		}
 		else
@@ -61,6 +62,6 @@ int	ft_printf(const char *format, ...)
 
 /*int	main(void)
 {
-	ft_printf("qewrqre%c\n", 'v');
-	printf("qwerqwe%c", 'v');
+	printf("mon printf1 = %d\n", ft_printf("value = %d, %d ", 3141, 1));
+	printf("vrai printf2 = %d\n", printf("value = %d, %d ", 3141, 1));
 }*/
