@@ -6,7 +6,7 @@
 /*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:27:02 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/21 17:54:16 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/21 21:09:11 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int	ft_putchar(char c)
 int	ft_putstr(char *str)
 {
 	write(1, str, ft_strlen(str));
-	return(ft_strlen(str));
+	return (ft_strlen(str));
 }
+
 
 /*int	main(void)
 {
