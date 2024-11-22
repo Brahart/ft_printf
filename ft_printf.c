@@ -6,7 +6,7 @@
 /*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:33:04 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/22 19:23:21 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 19:47:02 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int	ft_printf(const char *format, ...)
 	va_end(list);
 	return (count);
 }
-#include "limits.h"
+/* #include "limits.h"
 int	main(void)
 {
 	printf("mon printf1 = %d\n", ft_printf(" %p %p ", LONG_MIN, LONG_MAX));
 	printf("vrai printf2 = %d\n", printf(" %p %p ", LONG_MIN, LONG_MAX));;
-}
+} */

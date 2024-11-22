@@ -6,7 +6,7 @@
 /*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:10:53 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/22 19:19:46 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 19:46:36 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_put_base(unsigned long long n, char *base)
 int	ft_print_ptr(void *n, char *base)
 {
 	int						numlen;
-	unsigned long long int	*res;
+	unsigned long long int	res;
 
 	numlen = 0;
-	res = (unsigned long long int *)n;
+	res = (unsigned long long int)n;
 	if (res == 0)
 	{
 		numlen += write(1, "(nil)", 5);
@@ -38,7 +38,7 @@ int	ft_print_ptr(void *n, char *base)
 	{
 		numlen += write(1, "0x", 2);
 		ft_put_base((unsigned long long)res, base);
-		numlen += ft_num_len((long long int)res, ft_strlen(base));
+		numlen += ft_unnum_len((unsigned long long int)res, ft_strlen(base));
 	}
 	return (numlen);
 }
