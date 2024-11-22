@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrahamsinsard <abrahamsinsard@student.    +#+  +:+       +#+        */
+/*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:33:04 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/21 23:25:21 by abrahamsins      ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 11:19:33 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ int	ft_printf(const char *format, ...)
 			count += ft_putchar(format[i]);
 		i++;
 	}
+	va_end(list);
 	return (count);
 }
 
 /*int	main(void)
 {
-	printf("mon printf1 = %d\n", ft_printf("value = %d, %d ", 3141, 1));
-	printf("vrai printf2 = %d\n", printf("value = %d, %d ", 3141, 1));
+	printf("mon printf1 = %d\n", ft_printf("value = %d, %d ", 0, 1));
+	printf("vrai printf2 = %d\n", printf("value = %d, %d ", 0, 1));
 }*/
