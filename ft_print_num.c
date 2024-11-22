@@ -3,46 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrahamsinsard <abrahamsinsard@student.    +#+  +:+       +#+        */
+/*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:10:53 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/21 23:24:19 by abrahamsins      ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 19:19:46 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_num_len(long long int n)
-{
-	int	len;
-
-	len = 1;
-	if (n < 0)
-		n *= -1;
-	while (n > 10)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-void	ft_put_base(size_t n, char *base)
+void	ft_put_base(unsigned long long n, char *base)
 {
 	int	baselen;
 
 	baselen = ft_strlen(base);
-	if (n > (size_t)baselen)
+	if (n >= (size_t)baselen)
 		ft_put_base(n / baselen, base);
 	write(1, &base[n % baselen], 1);
 }
 
-int	ft_print_ptr(size_t n, char *base)
+int	ft_print_ptr(void *n, char *base)
 {
-	int	numlen;
+	int						numlen;
+	unsigned long long int	*res;
 
 	numlen = 0;
-	if (n == 0)
+	res = (unsigned long long int *)n;
+	if (res == 0)
 	{
 		numlen += write(1, "(nil)", 5);
 		return (numlen);
@@ -50,23 +37,23 @@ int	ft_print_ptr(size_t n, char *base)
 	else
 	{
 		numlen += write(1, "0x", 2);
-		ft_put_base(n, base);
-		numlen += ft_num_len(n);
+		ft_put_base((unsigned long long)res, base);
+		numlen += ft_num_len((long long int)res, ft_strlen(base));
 	}
 	return (numlen);
 }
 
-int	ft_print_un(unsigned int n, char *base)
+int	ft_print_un(unsigned long long int n, char *base)
 {
 	int	numlen;
 
 	numlen = 0;
 	ft_put_base(n, base);
-	numlen += ft_num_len(n);
+	numlen += ft_unnum_len(n, ft_strlen(base));
 	return (numlen);
 }
 
-int	ft_print_int(int n, char *base)
+int	ft_print_int(long long int n, char *base)
 {
 	int	numlen;
 
@@ -78,10 +65,9 @@ int	ft_print_int(int n, char *base)
 		n *= -1;
 	}
 	ft_put_base(n, base);
-	numlen += ft_num_len(n);
+	numlen += ft_num_len(n, ft_strlen(base));
 	return (numlen);
 }
-
 
 /*int	main(void)
 {
@@ -94,4 +80,3 @@ int	ft_print_int(int n, char *base)
 	ft_print_un(n, "0123456789abcdef");
 	return (0);
 }*/
-

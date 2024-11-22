@@ -4,8 +4,6 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-HEAD = libftprintf.h
-
 SRC =	ft_printf.c \
 		ft_print_num.c \
 		ft_print_utils.c
@@ -14,7 +12,7 @@ OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c $(HEAD) Makefile
+%.o: %.c Makefile
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
