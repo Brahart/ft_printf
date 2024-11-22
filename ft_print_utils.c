@@ -6,7 +6,7 @@
 /*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:27:02 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/22 19:21:20 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 19:51:28 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,3 @@ int	ft_num_len(long long int n, int baselen)
 	}
 	return (len);
 }
-
-/*int	main(void)
-{
-	printf("%d", ft_putstr("feqfw\n"));
-	return (1);
-}*/

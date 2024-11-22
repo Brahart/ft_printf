@@ -6,7 +6,7 @@
 /*   By: asinsard <asinsard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:10:53 by asinsard          #+#    #+#             */
-/*   Updated: 2024/11/22 19:46:36 by asinsard         ###   ########lyon.fr   */
+/*   Updated: 2024/11/22 19:51:49 by asinsard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,3 @@ int	ft_print_int(long long int n, char *base)
 	numlen += ft_num_len(n, ft_strlen(base));
 	return (numlen);
 }
-
-/*int	main(void)
-{
-	char			*str;
-	unsigned int	n;
-
-	str = "1456000000000";
-	n = -654;
-	printf("%x\n", n);
-	ft_print_un(n, "0123456789abcdef");
-	return (0);
-}*/
